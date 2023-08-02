@@ -1,25 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap');
+
+:root {
+    --primary: #3d5cff;
+    --light: #e2e8f0;
+    --dark: rgb(46, 46, 46);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 #content {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+
+
+/* ============ HEADER ============ */
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* width: min(1200px, 100%); */
+    width: 100%;
+    height: max-content;
+    padding: 20px 50px;
+}
+
+#logo-title {
+    font-size: 2.8rem;
+    line-height: 3rem;
+    margin-right: 30px;
+}
+
+#navbar {
+    width: 100%;
+}
+
+#navbar > ul {
+    list-style-type: none;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar > ul > li {
+    margin-right: 30px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#navbar > ul > li:hover {
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+button {
+    border: 0;
+    border-radius: 20px;
+    padding: 10px 25px;
+    white-space: nowrap;
+}
+
+#nav-btn {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#nav-btn:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+#nav-btn:active {
+    transform: scale(1);
+    transition: 0.1s;
+}
+
+
+/* HAMBURGER */
+#hamburger {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#hamburger > svg {
+    cursor: pointer;
+    fill: black;
+    width: 50px;
+    height: 50px;
+}
+
+#hamburger > svg:hover {
+    transform: scale(1.05);
+    transition: 0.2s; 
+}
+
+#hamburger > svg:active {
+    transform: scale(1);
+    transition: 0.1s;
+}
+
+
+/* ============ MAIN ============ */
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* ============ SLIDER ============ */
 #slider {
     width: min(1000px, 100%);
-    margin: 0 20px;
-    height: 300px;
-    background-size:cover;
+    height: 200px;
+    background-size: cover;
     background-image: url(./img/1.jpg);
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }   
 
 #arrow {
@@ -33,8 +152,8 @@
 }
 
 #arrow svg {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     fill: white;
     cursor: pointer;
 }
@@ -42,7 +161,7 @@
 #arrow svg:hover {
     transform: scale(1.05);
     transition: 0.3s;
-    filter: drop-shadow(0 0 0.3rem rgb(255, 255, 255));
+    filter: drop-shadow(0 0 0.1rem rgb(255, 255, 255));
 }
 
 #arrow svg:active {
@@ -64,15 +183,33 @@
     height: 12px;
     border-radius: 100%;
     margin-right: 6px;
-    filter: drop-shadow(0 0 0.3rem rgb(0, 0, 0));
 
 }
 
 .disable-dot {
-    background-color: rgb(87, 87, 87);
+    background-color: white;
+}
+
+.active-dot {
+    background-color: black;
 }
 
 
-.active-dot {
-    background-color: rgb(255, 255, 255);
+/* ============ MEDIA QUERY ============ */
+@media only screen and (max-width: 780px) { 
+    #navbar > ul {
+        display: none;
+    }
+
+    #nav-btn {
+        display: none;
+    }
+
+    #header {
+        justify-content: space-between;
+    }
+
+    #hamburger {
+        display: flex;
+    }
 }
